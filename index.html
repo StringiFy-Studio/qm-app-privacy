@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Privacy Policy - Quotation & Invloice PDF Maker</title>
+<title>Legal - Quotation & Invoice PDF Maker</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -53,11 +53,7 @@
     margin-bottom: 8px;
   }
 
-  header p {
-    font-size: 15px;
-    color: #a5b4fc;
-    margin-bottom: 4px;
-  }
+  header p { font-size: 15px; color: #a5b4fc; margin-bottom: 4px; }
 
   .badge {
     display: inline-block;
@@ -69,6 +65,43 @@
     font-size: 13px;
     color: #c7d2fe;
   }
+
+  /* ── Tab switcher ── */
+  .tab-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--primary);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 24px 12px;
+  }
+
+  .tab-btn {
+    padding: 8px 28px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #a5b4fc;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .tab-btn:hover { background: rgba(255,255,255,0.07); color: #fff; }
+
+  .tab-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* ── Pages ── */
+  .page { display: none; }
+  .page.active { display: block; }
 
   main {
     max-width: 800px;
@@ -85,7 +118,7 @@
   }
 
   .toc h2 {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.6px;
@@ -93,26 +126,12 @@
     margin-bottom: 14px;
   }
 
-  .toc ol {
-    padding-left: 18px;
-  }
-
-  .toc li {
-    margin-bottom: 6px;
-  }
-
-  .toc a {
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 15px;
-  }
-
+  .toc ol { padding-left: 18px; }
+  .toc li { margin-bottom: 6px; }
+  .toc a { color: var(--accent); text-decoration: none; font-size: 15px; }
   .toc a:hover { text-decoration: underline; }
 
-  section {
-    margin-bottom: 48px;
-    scroll-margin-top: 24px;
-  }
+  section { margin-bottom: 48px; scroll-margin-top: 72px; }
 
   h2.section-title {
     font-size: 20px;
@@ -141,12 +160,7 @@
   }
 
   p { margin-bottom: 14px; }
-
-  ul, ol {
-    margin: 0 0 16px 0;
-    padding-left: 22px;
-  }
-
+  ul, ol { margin: 0 0 16px 0; padding-left: 22px; }
   li { margin-bottom: 8px; }
 
   .highlight-box {
@@ -160,6 +174,16 @@
   }
 
   .highlight-box strong { font-weight: 600; }
+
+  .warning-box {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 15px;
+    color: #92400e;
+  }
 
   table {
     width: 100%;
@@ -210,11 +234,13 @@
   }
 
   footer a { color: var(--accent); text-decoration: none; }
+  footer nav { margin-top: 10px; display: flex; justify-content: center; gap: 20px; }
 
   @media (max-width: 600px) {
     table { font-size: 13px; }
     td, th { padding: 8px 10px; }
     .toc { padding: 18px; }
+    .tab-btn { padding: 8px 16px; font-size: 14px; }
   }
 </style>
 </head>
@@ -226,47 +252,51 @@
       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/>
     </svg>
   </div>
-  <h1>Privacy Policy</h1>
+  <h1>Legal</h1>
   <p>Quotation &amp; Invoice PDF Maker</p>
   <p>Developed by Dhruv Shah</p>
   <span class="badge">Last updated: March 31, 2025 &nbsp;·&nbsp; Version 1.0</span>
 </header>
 
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('privacy', this)">Privacy Policy</button>
+  <button class="tab-btn" onclick="switchTab('terms', this)">Terms of Service</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PRIVACY POLICY PAGE
+════════════════════════════════════════════════ -->
+<div id="privacy" class="page active">
 <main>
 
   <div class="toc">
     <h2>Table of Contents</h2>
     <ol>
-      <li><a href="#s1">Introduction</a></li>
-      <li><a href="#s2">Information We Collect</a></li>
-      <li><a href="#s3">How We Use Your Information</a></li>
-      <li><a href="#s4">Data Storage and Security</a></li>
-      <li><a href="#s5">Sharing of Information</a></li>
-      <li><a href="#s6">Third-Party Services</a></li>
-      <li><a href="#s7">Data Retention</a></li>
-      <li><a href="#s8">Your Rights and Choices</a></li>
-      <li><a href="#s9">Children's Privacy</a></li>
-      <li><a href="#s10">Changes to This Policy</a></li>
-      <li><a href="#s11">Contact Us</a></li>
+      <li><a href="#p1">Introduction</a></li>
+      <li><a href="#p2">Information We Collect</a></li>
+      <li><a href="#p3">How We Use Your Information</a></li>
+      <li><a href="#p4">Data Storage and Security</a></li>
+      <li><a href="#p5">Sharing of Information</a></li>
+      <li><a href="#p6">Third-Party Services</a></li>
+      <li><a href="#p7">Data Retention</a></li>
+      <li><a href="#p8">Your Rights and Choices</a></li>
+      <li><a href="#p9">Children's Privacy</a></li>
+      <li><a href="#p10">Changes to This Policy</a></li>
+      <li><a href="#p11">Contact Us</a></li>
     </ol>
   </div>
 
-  <!-- 1 -->
-  <section id="s1">
+  <section id="p1">
     <h2 class="section-title"><span class="section-num">1</span> Introduction</h2>
     <p>Welcome to <strong>Quotation &amp; Invoice PDF Maker</strong> ("the App", "we", "our", or "us"). This Privacy Policy describes how we collect, use, store, and protect your personal information when you use our mobile application available on Google Play and the Apple App Store.</p>
     <p>By downloading, installing, or using the App, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and use of information as described herein.</p>
     <div class="highlight-box">
-      <strong>Important:</strong> QM is a document management application designed for business use. Your data - including business documents, customer information, and product details - is stored <strong>primarily on your own device</strong>. We take privacy seriously and do not sell your personal data to third parties.
+      <strong>Important:</strong> QM is a document management application designed for business use. Your data — including business documents, customer information, and product details — is stored <strong>primarily on your own device</strong>. We take privacy seriously and do not sell your personal data to third parties.
     </div>
   </section>
 
-  <!-- 2 -->
-  <section id="s2">
+  <section id="p2">
     <h2 class="section-title"><span class="section-num">2</span> Information We Collect</h2>
-
-    <p>We collect the following categories of information:</p>
-
     <p><strong>2.1 Account Information</strong></p>
     <p>When you create an account or sign in, we collect:</p>
     <ul>
@@ -278,7 +308,7 @@
     </ul>
 
     <p><strong>2.2 Business Data You Provide</strong></p>
-    <p>The App allows you to enter and manage business-related information. This includes:</p>
+    <p>The App allows you to enter and manage business-related information, including:</p>
     <ul>
       <li>Company/business name, address, contact details, and tax information</li>
       <li>Customer names, contact information, addresses, and tax numbers</li>
@@ -286,15 +316,14 @@
       <li>Quotations, invoices, and other business documents you create</li>
       <li>Terms and conditions text you define</li>
       <li>Bank account details and UPI ID for payment instructions in documents</li>
-      <li>Company logo and authorized signature images</li>
+      <li>Company logo and authorised signature images</li>
     </ul>
 
     <p><strong>2.3 Device and Usage Information</strong></p>
-    <p>We may automatically collect certain technical information to operate and improve the App, including:</p>
     <ul>
       <li>Device type, operating system version, and unique device identifiers</li>
       <li>App version and crash or error logs</li>
-      <li>General usage patterns and feature interactions (analytics)</li>
+      <li>General usage patterns and feature interactions</li>
       <li>Internet connectivity status</li>
     </ul>
 
@@ -302,66 +331,34 @@
     <p>With your permission, the App may access your device's camera and photo gallery to allow you to upload logos, signatures, and product images. Generated PDF documents are saved to your device's local storage.</p>
   </section>
 
-  <!-- 3 -->
-  <section id="s3">
+  <section id="p3">
     <h2 class="section-title"><span class="section-num">3</span> How We Use Your Information</h2>
-
-    <p>We use the information we collect for the following purposes:</p>
-
     <table>
       <thead>
-        <tr>
-          <th>Purpose</th>
-          <th>Data Used</th>
-        </tr>
+        <tr><th>Purpose</th><th>Data Used</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Authenticating your account and keeping it secure</td>
-          <td>Email, auth token, device info</td>
-        </tr>
-        <tr>
-          <td>Enabling core App features (create documents, manage customers/products)</td>
-          <td>All business data you enter</td>
-        </tr>
-        <tr>
-          <td>Generating and storing PDF documents on your device</td>
-          <td>Business data, company info, signatures</td>
-        </tr>
-        <tr>
-          <td>Syncing your profile and preferences when online</td>
-          <td>Account info, profile photo</td>
-        </tr>
-        <tr>
-          <td>Diagnosing crashes and improving App stability</td>
-          <td>Crash logs, device info, app version</td>
-        </tr>
-        <tr>
-          <td>Providing customer support</td>
-          <td>Email, account info, issue description</td>
-        </tr>
-        <tr>
-          <td>Sending important service notifications (e.g., security alerts)</td>
-          <td>Email address</td>
-        </tr>
+        <tr><td>Authenticating your account and keeping it secure</td><td>Email, auth token, device info</td></tr>
+        <tr><td>Enabling core App features (create documents, manage customers/products)</td><td>All business data you enter</td></tr>
+        <tr><td>Generating and storing PDF documents on your device</td><td>Business data, company info, signatures</td></tr>
+        <tr><td>Syncing your profile and preferences when online</td><td>Account info, profile photo</td></tr>
+        <tr><td>Diagnosing crashes and improving App stability</td><td>Crash logs, device info, app version</td></tr>
+        <tr><td>Providing customer support</td><td>Email, account info, issue description</td></tr>
+        <tr><td>Sending important service notifications</td><td>Email address</td></tr>
       </tbody>
     </table>
-
-    <p>We do not use your data for targeted advertising. We do not profile you for marketing purposes.</p>
+    <p>We do not use your data for targeted advertising and we do not profile you for marketing purposes.</p>
   </section>
 
-  <!-- 4 -->
-  <section id="s4">
+  <section id="p4">
     <h2 class="section-title"><span class="section-num">4</span> Data Storage and Security</h2>
-
     <p><strong>4.1 Local Storage</strong></p>
-    <p>The majority of your data - including all business documents, customers, products, terms, and company information — is stored locally on your device using an encrypted SQLite database. Generated PDF files are also saved to your device's internal storage. This data remains on your device and is not transmitted to our servers unless you explicitly enable cloud sync features in the future.</p>
+    <p>The majority of your data — including all business documents, customers, products, terms, and company information — is stored locally on your device using an encrypted SQLite database. Generated PDF files are also saved to your device's internal storage.</p>
 
     <p><strong>4.2 Cloud Storage (Supabase)</strong></p>
-    <p>Your account authentication data (email, display name, phone number, profile photo URL) is stored on our cloud backend, which is powered by Supabase - a secure, SOC 2 Type II compliant infrastructure provider. Profile photos are stored in Supabase's secure cloud object storage. All data in transit is encrypted using TLS/HTTPS. Data at rest is encrypted using industry-standard AES-256 encryption.</p>
+    <p>Your account authentication data is stored on our cloud backend powered by Supabase — a SOC 2 Type II compliant infrastructure provider. All data in transit is encrypted using TLS/HTTPS. Data at rest is encrypted using AES-256 encryption.</p>
 
     <p><strong>4.3 Security Measures</strong></p>
-    <p>We implement reasonable and appropriate technical and organisational safeguards, including:</p>
     <ul>
       <li>Encrypted data transmission (TLS 1.2+)</li>
       <li>Encrypted cloud database storage</li>
@@ -369,136 +366,303 @@
       <li>Offline-capable account sign-out for disconnected scenarios</li>
       <li>No plaintext storage of passwords</li>
     </ul>
-
-    <p>While we take reasonable precautions, no method of electronic storage or transmission is 100% secure. We encourage you to use a strong password and keep your device secure.</p>
   </section>
 
-  <!-- 5 -->
-  <section id="s5">
+  <section id="p5">
     <h2 class="section-title"><span class="section-num">5</span> Sharing of Information</h2>
-    <p>We do not sell, trade, rent, or share your personal information with third parties for their marketing or commercial purposes.</p>
-    <p>We may share your information only in the following limited circumstances:</p>
+    <p>We do not sell, trade, rent, or share your personal information with third parties for their marketing or commercial purposes. We may share your information only in the following limited circumstances:</p>
     <ul>
-      <li><strong>Service Providers:</strong> We use trusted third-party providers (such as Supabase and Firebase) solely to operate and improve the App. These providers are contractually bound to process your data only as instructed by us and in accordance with applicable privacy laws.</li>
-      <li><strong>Legal Requirements:</strong> We may disclose your information if required to do so by applicable law, regulation, legal process, or governmental authority.</li>
-      <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of all or a portion of our assets, your data may be transferred as part of that transaction. We will notify you via email or a prominent in-app notice before your personal data becomes subject to a different privacy policy.</li>
-      <li><strong>Protection of Rights:</strong> We may share information when we believe disclosure is necessary to protect the rights, safety, or property of QM, our users, or the public.</li>
+      <li><strong>Service Providers:</strong> Trusted third-party providers (such as Supabase and Firebase) solely to operate the App.</li>
+      <li><strong>Legal Requirements:</strong> When required by applicable law, regulation, or governmental authority.</li>
+      <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, with prior notice to you.</li>
+      <li><strong>Protection of Rights:</strong> When necessary to protect the rights, safety, or property of QM, our users, or the public.</li>
     </ul>
-
-    <p>You may choose to share documents (e.g., PDF quotations) with third parties using the App's share feature. We have no control over how those third parties handle information you share with them.</p>
   </section>
 
-  <!-- 6 -->
-  <section id="s6">
+  <section id="p6">
     <h2 class="section-title"><span class="section-num">6</span> Third-Party Services</h2>
-    <p>The App integrates the following third-party services. Each has its own privacy policy governing how they handle data:</p>
-
     <table>
       <thead>
-        <tr>
-          <th>Service</th>
-          <th>Purpose</th>
-          <th>Privacy Policy</th>
-        </tr>
+        <tr><th>Service</th><th>Purpose</th><th>Privacy Policy</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Supabase</td>
-          <td>Authentication, user profile storage, cloud sync</td>
-          <td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></td>
-        </tr>
-        <tr>
-          <td>Firebase (Google)</td>
-          <td>App configuration and crash analytics</td>
-          <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
-        </tr>
-        <tr>
-          <td>Google Sign-In</td>
-          <td>OAuth authentication via Google account</td>
-          <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
-        </tr>
-        <tr>
-          <td>Sign in with Apple</td>
-          <td>OAuth authentication via Apple ID</td>
-          <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a></td>
-        </tr>
+        <tr><td>Supabase</td><td>Authentication, user profile storage, cloud sync</td><td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></td></tr>
+        <tr><td>Firebase (Google)</td><td>App configuration and crash analytics</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+        <tr><td>Google Sign-In</td><td>OAuth authentication via Google account</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+        <tr><td>Sign in with Apple</td><td>OAuth authentication via Apple ID</td><td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a></td></tr>
       </tbody>
     </table>
-
-    <p>We only use the minimum permissions required from each third-party service to deliver the App's functionality.</p>
   </section>
 
-  <!-- 7 -->
-  <section id="s7">
+  <section id="p7">
     <h2 class="section-title"><span class="section-num">7</span> Data Retention</h2>
-    <p>We retain your personal data only for as long as necessary to provide the App's services and to comply with our legal obligations.</p>
     <ul>
-      <li><strong>Local data:</strong> Stored on your device until you uninstall the App or manually delete it within the App. Uninstalling the App removes all locally stored data.</li>
-      <li><strong>Account data (cloud):</strong> Retained for as long as your account is active. If you delete your account, we will delete your profile information from our cloud systems within 30 days, subject to any legal retention requirements.</li>
+      <li><strong>Local data:</strong> Stored on your device until you uninstall the App or manually delete it within the App.</li>
+      <li><strong>Account data (cloud):</strong> Retained for as long as your account is active. Deletion requests are processed within 30 days.</li>
       <li><strong>Crash and analytics logs:</strong> Retained for a maximum of 90 days.</li>
     </ul>
   </section>
 
-  <!-- 8 -->
-  <section id="s8">
+  <section id="p8">
     <h2 class="section-title"><span class="section-num">8</span> Your Rights and Choices</h2>
-    <p>Depending on your location, you may have certain rights under applicable data protection laws (such as the GDPR, CCPA, or India's DPDP Act). These rights may include:</p>
+    <p>Depending on your location, you may have rights under applicable laws (GDPR, CCPA, India's DPDP Act) including:</p>
     <ul>
       <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
-      <li><strong>Correction:</strong> Request that we correct inaccurate or incomplete data.</li>
-      <li><strong>Deletion:</strong> Request the deletion of your personal data. You can delete your account directly within the App (Settings → Account → Sign Out / Delete Account), or contact us.</li>
+      <li><strong>Correction:</strong> Request correction of inaccurate or incomplete data.</li>
+      <li><strong>Deletion:</strong> Request deletion of your personal data via Settings → Account, or by contacting us.</li>
       <li><strong>Portability:</strong> Request a portable copy of your data in a structured, machine-readable format.</li>
-      <li><strong>Withdraw Consent:</strong> Where we rely on your consent to process data, you may withdraw it at any time without affecting prior processing.</li>
+      <li><strong>Withdraw Consent:</strong> Withdraw consent at any time without affecting prior processing.</li>
       <li><strong>Object to Processing:</strong> Object to certain types of processing, including direct marketing.</li>
     </ul>
-
-    <p>To exercise any of these rights, please contact us at the address provided in Section 11. We will respond to all legitimate requests within 30 days.</p>
-
-    <p><strong>Device Permissions:</strong> You can manage App permissions (camera, photo library, storage) at any time through your device's system settings.</p>
+    <p>We will respond to all legitimate requests within 30 days.</p>
   </section>
 
-  <!-- 9 -->
-  <section id="s9">
+  <section id="p9">
     <h2 class="section-title"><span class="section-num">9</span> Children's Privacy</h2>
-    <p>Quotation &amp; Invoice PDF Maker is intended for use by individuals who are 13 years of age or older. In regions where a higher age of digital consent applies, the App is intended for users of that applicable age or older.</p>
-    <p>We do not knowingly collect personal information from children under the applicable age of consent. If you believe that a child has provided us with personal information without parental consent, please contact us immediately and we will take steps to delete such information.</p>
+    <p>QM is intended for users aged 13 or older (or the applicable age of digital consent in your region). We do not knowingly collect personal information from children. If you believe a child has provided information without parental consent, please contact us immediately.</p>
   </section>
 
-  <!-- 10 -->
-  <section id="s10">
-    <h2 class="section-title"><span class="section-num">10</span> Changes to This Privacy Policy</h2>
-    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make material changes, we will:</p>
-    <ul>
-      <li>Update the "Last updated" date at the top of this page</li>
-      <li>Provide notice within the App or by email (where applicable) prior to the changes taking effect</li>
-    </ul>
-    <p>We encourage you to review this Privacy Policy periodically. Your continued use of the App after the effective date of any changes constitutes your acceptance of the updated policy.</p>
-
+  <section id="p10">
+    <h2 class="section-title"><span class="section-num">10</span> Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Last updated" date and provide notice within the App or by email before changes take effect.</p>
     <div class="highlight-box">
-      The most current version of this Privacy Policy is always available at this URL. Older versions may be requested by contacting us.
+      The most current version of this Privacy Policy is always available at this URL.
     </div>
   </section>
 
-  <!-- 11 -->
-  <section id="s11">
+  <section id="p11">
     <h2 class="section-title"><span class="section-num">11</span> Contact Us</h2>
-    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please contact us:</p>
-
+    <p>For any questions, concerns, or data requests regarding this Privacy Policy:</p>
     <div class="contact-card">
       <p><strong>App Name:</strong> Quotation &amp; Invoice PDF Maker</p>
-      <p><strong>Developer:</strong> StringiFy</p>
+      <p><strong>Developer:</strong> Dhruv Shah</p>
       <p><strong>Location:</strong> Surat, Gujarat, India</p>
-      <p><strong>Email:</strong> <a href="mailto:contactstringify@gmail.com">contactstringify@gmail.com</a></p>
-      <p style="margin-top: 12px; color: #6b7280; font-size: 14px;">Please allow up to 5 business days for a response. For account deletion requests, please state "Account Deletion Request" in your subject line.</p>
+      <p><strong>Email:</strong> <a href="mailto:privacy@yourdomain.com">privacy@yourdomain.com</a></p>
+      <p style="margin-top: 12px; color: #6b7280; font-size: 14px;">Please allow up to 5 business days for a response. For account deletion requests, state "Account Deletion Request" in the subject line.</p>
     </div>
   </section>
 
 </main>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     TERMS OF SERVICE PAGE
+════════════════════════════════════════════════ -->
+<div id="terms" class="page">
+<main>
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#t1">Acceptance of Terms</a></li>
+      <li><a href="#t2">Description of Service</a></li>
+      <li><a href="#t3">Eligibility</a></li>
+      <li><a href="#t4">User Accounts</a></li>
+      <li><a href="#t5">Acceptable Use</a></li>
+      <li><a href="#t6">Intellectual Property</a></li>
+      <li><a href="#t7">Your Content and Data</a></li>
+      <li><a href="#t8">Disclaimer of Warranties</a></li>
+      <li><a href="#t9">Limitation of Liability</a></li>
+      <li><a href="#t10">Indemnification</a></li>
+      <li><a href="#t11">Termination</a></li>
+      <li><a href="#t12">Governing Law</a></li>
+      <li><a href="#t13">Changes to Terms</a></li>
+      <li><a href="#t14">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <section id="t1">
+    <h2 class="section-title"><span class="section-num">1</span> Acceptance of Terms</h2>
+    <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "you", or "your") and Dhruv Shah ("Developer", "we", "our", or "us") governing your access to and use of <strong>Quotation &amp; Invoice PDF Maker</strong> (the "App").</p>
+    <p>By downloading, installing, registering for, or using the App in any way, you confirm that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you must not use the App.</p>
+    <div class="highlight-box">
+      <strong>Please read these Terms carefully.</strong> They contain important information about your rights and obligations, including limitations of liability and a governing law clause.
+    </div>
+  </section>
+
+  <section id="t2">
+    <h2 class="section-title"><span class="section-num">2</span> Description of Service</h2>
+    <p>QM — Invoice &amp; Quotation & Invoice PDF Maker is a mobile productivity application that enables users to:</p>
+    <ul>
+      <li>Create, manage, and share professional business documents including quotations, invoices, purchase orders, delivery notes, and receipts</li>
+      <li>Manage a customer and product catalogue</li>
+      <li>Generate PDF documents and share them via third-party applications</li>
+      <li>Store business information, company details, bank information, and digital signatures locally on their device</li>
+      <li>Authenticate and sync account profile data via cloud services</li>
+    </ul>
+    <p>The App is intended for legitimate business and professional use only. Features marked as "coming soon" or shown in a disabled state are not yet available and are subject to change without notice.</p>
+  </section>
+
+  <section id="t3">
+    <h2 class="section-title"><span class="section-num">3</span> Eligibility</h2>
+    <p>You must meet the following requirements to use the App:</p>
+    <ul>
+      <li>You must be at least 13 years of age, or the minimum age of digital consent in your jurisdiction, whichever is higher</li>
+      <li>You must have the legal capacity to enter into a binding agreement</li>
+      <li>You must not be prohibited from using the App under the laws of your country or region</li>
+      <li>If you are using the App on behalf of a business or organisation, you represent that you have the authority to bind that entity to these Terms</li>
+    </ul>
+  </section>
+
+  <section id="t4">
+    <h2 class="section-title"><span class="section-num">4</span> User Accounts</h2>
+    <p><strong>4.1 Account Registration</strong></p>
+    <p>You may create an account using your email address or by signing in via Google or Apple. You agree to provide accurate, current, and complete information during registration and to keep your account information updated.</p>
+
+    <p><strong>4.2 Account Security</strong></p>
+    <p>You are solely responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You must notify us immediately at <a href="mailto:privacy@yourdomain.com">privacy@yourdomain.com</a> if you suspect any unauthorised access to your account.</p>
+
+    <p><strong>4.3 One Account Per User</strong></p>
+    <p>Each individual or entity may maintain only one active account. Creating multiple accounts to circumvent restrictions or abuse features is prohibited.</p>
+
+    <p><strong>4.4 Account Termination</strong></p>
+    <p>You may delete your account at any time through the App's settings. We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+  </section>
+
+  <section id="t5">
+    <h2 class="section-title"><span class="section-num">5</span> Acceptable Use</h2>
+    <p>You agree to use the App only for lawful purposes and in a manner consistent with these Terms. You agree that you will not:</p>
+    <ul>
+      <li>Use the App for any fraudulent, deceptive, or illegal purpose, including creating false or misleading business documents</li>
+      <li>Attempt to reverse engineer, decompile, disassemble, or otherwise derive the source code of the App</li>
+      <li>Use automated means (bots, scripts, scrapers) to access or interact with the App</li>
+      <li>Attempt to interfere with, disrupt, or compromise the security or integrity of the App or its backend services</li>
+      <li>Upload or transmit any malware, viruses, or harmful code through the App</li>
+      <li>Impersonate any person or entity or falsely represent your affiliation with any person or entity</li>
+      <li>Use the App in any way that violates applicable local, national, or international laws or regulations</li>
+      <li>Resell, sublicense, or commercially exploit the App without prior written authorisation from us</li>
+    </ul>
+
+    <div class="warning-box">
+      <strong>Important:</strong> The App must not be used to generate fraudulent invoices, quotations, or financial documents intended to mislead customers, tax authorities, or any other party. Such use may constitute a criminal offence and we reserve the right to report such activity to relevant authorities.
+    </div>
+  </section>
+
+  <section id="t6">
+    <h2 class="section-title"><span class="section-num">6</span> Intellectual Property</h2>
+    <p><strong>6.1 Our Property</strong></p>
+    <p>The App, including its design, code, user interface, graphics, logos, text, and all other content created by us, is owned by Dhruv Shah and is protected by applicable intellectual property laws including copyright, trademark, and trade secret law. Nothing in these Terms grants you any right to use our intellectual property beyond the limited licence described below.</p>
+
+    <p><strong>6.2 Licence to Use</strong></p>
+    <p>We grant you a limited, non-exclusive, non-transferable, revocable licence to download and use the App on your personal or business device solely for the purposes described in these Terms. This licence does not include the right to copy, modify, distribute, sell, or lease any part of the App.</p>
+
+    <p><strong>6.3 Your Content</strong></p>
+    <p>You retain all ownership rights to the business data, documents, images, and other content you create or upload in the App ("Your Content"). By using the App, you grant us a limited licence to process Your Content solely to provide the App's features to you (e.g., generating PDF documents, syncing profile data).</p>
+
+    <p><strong>6.4 Feedback</strong></p>
+    <p>If you submit suggestions, ideas, or feedback about the App, you grant us the right to use such feedback without restriction or compensation to you.</p>
+  </section>
+
+  <section id="t7">
+    <h2 class="section-title"><span class="section-num">7</span> Your Content and Data</h2>
+    <p>You are solely responsible for all content you create, enter, upload, or share through the App. You represent and warrant that:</p>
+    <ul>
+      <li>You own or have the necessary rights to all content you input into the App</li>
+      <li>Your content and your use of the App does not violate any third-party rights, including intellectual property or privacy rights</li>
+      <li>Your content complies with all applicable laws and regulations</li>
+    </ul>
+    <p>We do not review or verify the accuracy of business documents you create. You are solely responsible for ensuring the accuracy, completeness, and legality of all documents generated using the App.</p>
+    <p>We recommend that you regularly back up your data. We are not responsible for any loss of data resulting from device failure, App malfunction, or other circumstances beyond our reasonable control.</p>
+  </section>
+
+  <section id="t8">
+    <h2 class="section-title"><span class="section-num">8</span> Disclaimer of Warranties</h2>
+    <p>The App is provided on an <strong>"as is" and "as available"</strong> basis without warranties of any kind, either express or implied.</p>
+    <p>To the fullest extent permitted by applicable law, we expressly disclaim all warranties, including but not limited to:</p>
+    <ul>
+      <li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement</li>
+      <li>Warranties that the App will be uninterrupted, error-free, or free of viruses or other harmful components</li>
+      <li>Warranties regarding the accuracy, reliability, or completeness of any content or calculations within the App</li>
+    </ul>
+    <div class="warning-box">
+      <strong>No financial or legal advice:</strong> The App is a productivity tool and does not provide financial, accounting, tax, or legal advice. Documents generated by the App should be reviewed by a qualified professional before use in formal business transactions where required by law.
+    </div>
+  </section>
+
+  <section id="t9">
+    <h2 class="section-title"><span class="section-num">9</span> Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, in no event shall Dhruv Shah, his affiliates, licensors, service providers, employees, agents, or successors be liable for any:</p>
+    <ul>
+      <li>Indirect, incidental, special, consequential, or punitive damages</li>
+      <li>Loss of profits, revenue, data, business, or goodwill</li>
+      <li>Damages arising from your reliance on documents or outputs generated by the App</li>
+      <li>Damages resulting from unauthorised access to or alteration of your data</li>
+      <li>Damages arising from third-party services integrated with the App</li>
+    </ul>
+    <p>In jurisdictions that do not allow the exclusion or limitation of certain damages, our liability is limited to the maximum extent permitted by law. In no event shall our total liability to you exceed the amount you paid for the App in the 12 months preceding the claim, or INR 500, whichever is greater.</p>
+  </section>
+
+  <section id="t10">
+    <h2 class="section-title"><span class="section-num">10</span> Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless Dhruv Shah and any associated parties from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in connection with:</p>
+    <ul>
+      <li>Your use of the App in violation of these Terms</li>
+      <li>Your Content or any documents you create using the App</li>
+      <li>Your violation of any applicable law or the rights of any third party</li>
+      <li>Any dispute between you and a third party arising from your use of the App</li>
+    </ul>
+  </section>
+
+  <section id="t11">
+    <h2 class="section-title"><span class="section-num">11</span> Termination</h2>
+    <p><strong>11.1 Termination by You</strong></p>
+    <p>You may stop using the App at any time. You may also delete your account through the App's settings, which will result in the deletion of your cloud profile data as described in our Privacy Policy.</p>
+
+    <p><strong>11.2 Termination by Us</strong></p>
+    <p>We reserve the right to suspend or terminate your access to the App at our sole discretion, with or without notice, if we believe you have violated these Terms, engaged in fraudulent or illegal activity, or for any other reason we deem necessary to protect the App or its users.</p>
+
+    <p><strong>11.3 Effect of Termination</strong></p>
+    <p>Upon termination, your right to use the App ceases immediately. Provisions of these Terms that by their nature should survive termination — including intellectual property, disclaimer of warranties, limitation of liability, and indemnification — will continue to apply.</p>
+  </section>
+
+  <section id="t12">
+    <h2 class="section-title"><span class="section-num">12</span> Governing Law and Dispute Resolution</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions.</p>
+    <p>Any dispute arising out of or relating to these Terms or the App shall first be attempted to be resolved through good-faith negotiation. If the dispute cannot be resolved informally, it shall be subject to the exclusive jurisdiction of the courts located in <strong>Surat, Gujarat, India</strong>.</p>
+    <p>If you are a consumer located in a jurisdiction that provides additional consumer protection rights, those rights are not affected by this clause.</p>
+  </section>
+
+  <section id="t13">
+    <h2 class="section-title"><span class="section-num">13</span> Changes to Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. When we make material changes, we will update the "Last updated" date and provide notice via the App or by email where required. Your continued use of the App after the effective date of revised Terms constitutes your acceptance of those changes.</p>
+    <p>We encourage you to review these Terms periodically. If you do not agree to the updated Terms, you must stop using the App.</p>
+  </section>
+
+  <section id="t14">
+    <h2 class="section-title"><span class="section-num">14</span> Contact Us</h2>
+    <p>For any questions or concerns regarding these Terms of Service:</p>
+    <div class="contact-card">
+      <p><strong>App Name:</strong> Quotation &amp; Invoice PDF Maker</p>
+      <p><strong>Developer:</strong> Dhruv Shah</p>
+      <p><strong>Location:</strong> Surat, Gujarat, India</p>
+      <p><strong>Email:</strong> <a href="mailto:privacy@yourdomain.com">privacy@yourdomain.com</a></p>
+      <p style="margin-top: 12px; color: #6b7280; font-size: 14px;">Please allow up to 5 business days for a response.</p>
+    </div>
+  </section>
+
+</main>
+</div>
+
 
 <footer>
   <p>&copy; 2025 Quotation &amp; Invoice PDF Maker. All rights reserved.</p>
-  <p style="margin-top: 6px;">This privacy policy was last reviewed on <strong>March 31, 2025</strong>.</p>
+  <nav>
+    <a href="#" onclick="switchTab('privacy', document.querySelectorAll('.tab-btn')[0]); return false;">Privacy Policy</a>
+    <a href="#" onclick="switchTab('terms', document.querySelectorAll('.tab-btn')[1]); return false;">Terms of Service</a>
+    <a href="mailto:privacy@yourdomain.com">Contact</a>
+  </nav>
 </footer>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
 
 </body>
 </html>
